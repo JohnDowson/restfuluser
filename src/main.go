@@ -53,7 +53,7 @@ func main() {
 
 	server.Use(func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {
-			uc := &data.UserContext{ctx, users}
+			uc := &data.UserContext{Context: ctx, Users: users}
 			return next(uc)
 		}
 	})
